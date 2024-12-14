@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useTodos } from "./context/ToDoContext";
+import "./ToDoItem.css"
 
 const TodoItem = ({ todo }) => {
   const { updateTodo, deleteTodo } = useTodos();
@@ -16,21 +17,28 @@ const TodoItem = ({ todo }) => {
   return (
     <div>
       {isEditing ? (
-        <>
+        <div className="list-item">
           <input
             type="text"
+            className="list-item-input"
             value={newText}
             onChange={(e) => setNewText(e.target.value)}
           />
-          <button onClick={handleUpdate}>Save</button>
-        </>
+          <div className="list-item-btns">
+            <button onClick={handleUpdate}>✅</button>
+            <button onClick={() => deleteTodo(todo.id)}>🗑️</button>
+          </div>
+        </div>
       ) : (
-        <>
+        <div className="list-item">
           <span>{todo.text}</span>
-          <button onClick={() => setIsEditing(true)}>Edit</button>
-        </>
+          <div className="list-item-btns">
+            <button onClick={() => setIsEditing(true)}>✏️</button>
+            <button onClick={() => deleteTodo(todo.id)}>🗑️</button>
+          </div>
+
+        </div>
       )}
-      <button onClick={() => deleteTodo(todo.id)}>Delete</button>
     </div>
   );
 };
