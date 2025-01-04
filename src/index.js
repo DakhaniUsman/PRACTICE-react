@@ -3,14 +3,17 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import ParentCounterContext from './components/context/CounterContext';
+import { BrowserRouter } from 'react-router-dom';
+import { TodoProvider } from './components/context/TodoContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <ParentCounterContext>
-      <App />
-    </ParentCounterContext>
+    <BrowserRouter>
+      <TodoProvider>
+        <App />
+      </TodoProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );
 

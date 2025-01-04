@@ -1,18 +1,17 @@
 import React from "react";
-import { TodoProvider } from "./components/context/ToDoContext";
-import TodoList from "./components/ToDoList";
-import AddTodo from "./components/AddToDo";
+
 import "../src/App.css"
+import {Route, Routes } from "react-router-dom";
+import ToDoApp from "./components/ToDoApp";
 
 const App = () => {
   return (
-    <TodoProvider>
-      <div className="to-do-container" style={{ padding: "20px" }}>
-        <h1>To-Do List</h1>
-        <AddTodo />
-        <TodoList />
-      </div>
-    </TodoProvider>
+    <div className="App">
+      <Routes>
+        <Route exact path="/to-do-app" element={<ToDoApp />} />
+      </Routes>
+    </div>
+
   );
 };
 

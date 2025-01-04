@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { useTodos } from "./context/ToDoContext";
 import "./AddToDo.css"
+import { useTodos } from "./context/TodoContext";
 
 const AddTodo = () => {
   const { addTodo } = useTodos();

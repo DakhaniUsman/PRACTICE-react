@@ -1,5 +1,5 @@
 import React from "react";
-import { useTodos } from "./context/ToDoContext";
+import { useTodos } from "./context/TodoContext";
 import TodoItem from "./ToDoItem";
 
 const TodoList = () => {
